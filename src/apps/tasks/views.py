@@ -4,10 +4,14 @@ from .forms import TaskForm
 
 def index(request):
     tasks = Task.objects.order_by('-id')
-    return render(request, 'main/index.html', {'title': 'Главная страница сайта', 'tasks': tasks})
+    context = {
+        'title': 'Главная страница сайта', 
+        'tasks': tasks
+        }
+    return render(request, 'tasks/index.html', context)
 
 def about(request):
-    return render(request, 'main/about.html')
+    return render(request, 'tasks/about.html')
 
 def create(request):
     error = ''
@@ -24,4 +28,4 @@ def create(request):
         'form': form,
         'error': error
     }
-    return render(request, 'main/create.html', context)
+    return render(request, 'tasks/create.html', context)    
