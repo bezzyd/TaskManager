@@ -22,10 +22,11 @@ def create(request):
             return redirect('/')
         else:
             error = 'Форма была неверной'
-            
+
     form = TaskForm()
     context = {
         'form': form,
         'error': error
     }
-    return render(request, 'tasks/create.html', context)    
+    return render(request, 'tasks/create.html', context) 
+    
